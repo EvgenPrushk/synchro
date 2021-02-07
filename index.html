@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synhro</title>
+    <style>
+        #app {
+            width: 500px;
+            height: 500px;
+        }
+
+        #app canvas {
+            position: absolute;
+            cursor: none;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <canvas id="basic"></canvas>
+        <canvas id="viwer"></canvas>
+    </div>
+    <input type="color"  id="color">
+
+    <script src="mouseWatcher.js"></script>
+    <script src="core.js"></script>
+    <script src="script.js"></script>    
+</body>
+</html>
