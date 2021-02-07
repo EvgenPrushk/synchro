@@ -41,3 +41,13 @@ function tick (handler) {
     // setInterval(handler, 0)
     }
 }
+// расчет координат точки
+function getSymmetry (pointA, pointB) {
+    const dx = pointB.x - pointA.x;
+    const dy = pointB.y - pointA.y;
+
+    return {
+        x: pointA.x + 2 * dx,
+        y: pointA.y + 2 * dy,
+    }
+}
