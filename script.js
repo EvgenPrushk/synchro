@@ -1,7 +1,7 @@
 const WIDTH = 500;
 const HEIGHT = 500;
 const R = 6;
-const N = 5;
+const N = 25;
 
 const CENTER_POINT = {
     x: WIDTH / 2,
@@ -39,7 +39,7 @@ setMouseWatcher(appElement, newMouse => {
 
         if (!pmouse.left) {
             for (const point of points) {
-                drawCirlce(viwerCanvas, point.x, point.y, R, color);
+                drawCirlce(basicCanvas, point.x, point.y, R, color);
             }  
             // drawCirlce(basicCanvas, mouse.x, mouse.y, R, color);
             // drawCirlce(basicCanvas, smouse.x, smouse.y, R, color);
@@ -47,11 +47,19 @@ setMouseWatcher(appElement, newMouse => {
         } else {
             const ppoints = getSymmetry(pmouse, CENTER_POINT, N)
             for (let i = 0; i < N; i++) {
-                const element = array[i];
-                
+               drawLine (
+                basicCanvas,
+                ppoints[i].x,
+                ppoints[i].y,
+                points[i].x,
+                points[i].y,
+                2 * R,
+                color,
+               ) 
             }
-            drawLine(basicCanvas, pmouse.x, pmouse.y, mouse.x, mouse.y, 2 * R, color);
-            drawLine(basicCanvas, spmouse.x, spmouse.y, smouse.x, smouse.y, 2 * R, color);
+        //     drawLine(basicCanvas, pmouse.x, pmouse.y, mouse.x, mouse.y, 2 * R, color);
+        //     drawLine(basicCanvas, spmouse.x, spmouse.y, smouse.x, smouse.y, 2 * R, color);
+        // 
         }
     }
 });
@@ -75,7 +83,7 @@ drawCirlce(basicCanvas, CENTER_POINT.x, CENTER_POINT.y, R, 'red');
 tick(timestamp => {
     clearCanvas(viwerCanvas);
   
-    const points = getSymmetry(mouse, CENTER_POINT, 3);
+    const points = getSymmetry(mouse, CENTER_POINT, N);
 
     for (const point of points) {
         drawCirlce(viwerCanvas, point.x, point.y, R, color);
